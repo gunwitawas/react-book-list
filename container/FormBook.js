@@ -7,7 +7,8 @@ export class FormBook extends Component {
       imageUrl: '',
       title: '',
       author: '',
-      description: ''
+      description: '',
+      isAddBook: true
     }
   }
 
@@ -29,11 +30,19 @@ export class FormBook extends Component {
     if (!title || !author || !imageUrl) return
     this.props.onBookAdded({imageUrl, title, author, description})
     this.setState({imageUrl: '', title: '', author: '', description: ''})
+    this.setState({isAddBook: false})
   }
 
   render(){
     return(
       <div className="container">
+      { !this.state.isAddBook && (
+        <div className="mt-3 mb-3">
+          <button type="button" class="btn btn-primary" onClick={()=>{this.setState({isAddBook: true})}}>+ Add Book</button>
+        </div>
+      )}
+      { this.state.isAddBook && (
+      
 
         <form className="mt-3 mb-3">
           <div class="form-group">
@@ -56,13 +65,11 @@ export class FormBook extends Component {
             <input type="text" class="form-control" value={this.state.description} 
             onChange={(e)=>{this.onInputDescription(e)}}/>
         </div>
-        
-              <button type="button" class="btn btn-primary" onClick={()=>{this.onSubmit()}}>Submit</button>
+              <button type="button" class="btn btn-primary" onClick={()=>{this.onSubmit()}}>Add</button>
+              <button type="button" class="btn btn-danger ml-3" onClick={()=>{this.setState({isAddBook: false})}}>Cancel</button>
         </form>
-
+      )}
       </div>
-
-      
       
     )
   }
