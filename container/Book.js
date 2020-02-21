@@ -13,8 +13,8 @@ export class Book extends Component {
     console.log('call api')
      axios.get(`http://139.5.145.96:8083/book/querybooklist`)
       .then(res => {
-        console.log(res)
-      })
+        console.log('response : ',res)
+      }).catch(err => console.log('error : ',err))
   }
 
   onBookAdded(data) {
