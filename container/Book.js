@@ -1,12 +1,22 @@
 import React, { Component } from "react";
 import { FormBook } from "./FormBook";
+import axios from 'axios';
 export class Book extends Component {
   constructor(props) {
     super(props);
     this.state = {
       bookList: []
     };
+    
   }
+  componentDidMount() {
+    console.log('call api')
+     axios.get(`http://139.5.145.96:8083/book/querybooklist`)
+      .then(res => {
+        console.log(res)
+      })
+  }
+
   onBookAdded(data) {
     const { bookList } = this.state;
     bookList.push(data);
