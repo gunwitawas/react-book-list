@@ -11,6 +11,7 @@ export class FormBook extends Component {
       isAddBook: true
     }
   }
+  
 
   onInputImageUrl(event){
     this.setState({imageUrl: event.target.value})
@@ -38,35 +39,35 @@ export class FormBook extends Component {
       <div className="container">
       { !this.state.isAddBook && (
         <div className="mt-3 mb-3">
-          <button type="button" class="btn btn-primary" onClick={()=>{this.setState({isAddBook: true})}}>+ Add Book</button>
+          <button type="button" className="btn btn-primary" onClick={()=>{this.setState({isAddBook: true})}}>+ Add Book</button>
         </div>
       )}
       { this.state.isAddBook && (
       
 
         <form className="mt-3 mb-3">
-          <div class="form-group">
+          <div className="form-group">
             <label>URL Image</label>
-            <input type="text" class="form-control" value={this.state.imageUrl} 
+            <input type="text" className="form-control" value={this.state.imageUrl} 
             onChange={(e)=>{this.onInputImageUrl(e)}}/>
           </div>
-        <div class="form-group">
+        <div className="form-group">
             <label>Title</label>
-            <input type="text" class="form-control" value={this.state.title} 
+            <input type="text" className="form-control" value={this.state.title} 
             onChange={(e)=>{this.onInputTitle(e)}}/>
         </div>
-        <div class="form-group">
+        <div className="form-group">
             <label>author</label>
-            <input type="text" class="form-control" value={this.state.author} 
+            <input type="text" className="form-control" value={this.state.author} 
             onChange={(e)=>{this.onInputAuthor(e)}}/>
         </div>
-        <div class="form-group">
+        <div className="form-group">
             <label>description</label>
-            <input type="text" class="form-control" value={this.state.description} 
+            <input type="text" className="form-control" value={this.state.description} 
             onChange={(e)=>{this.onInputDescription(e)}}/>
         </div>
-              <button type="button" class="btn btn-primary" onClick={()=>{this.onSubmit()}}>Add</button>
-              <button type="button" class="btn btn-danger ml-3" onClick={()=>{this.setState({isAddBook: false})}}>Cancel</button>
+              <button type="button" className="btn btn-primary" onClick={()=>{this.onSubmit()}}>Add</button>
+              <button type="button" className="btn btn-danger ml-3" onClick={()=>{this.setState({isAddBook: false})}}>Cancel</button>
         </form>
       )}
       </div>
