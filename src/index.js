@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import './style.css';
-import {Book} from './container/Book'
+import {Book} from './container/Book';
 
 class App extends Component {
   constructor() {
