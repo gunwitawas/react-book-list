@@ -11,9 +11,20 @@ export class Book extends Component {
   }
   componentDidMount() {
     console.log('call api')
-     axios.get(`api/book/querybooklist`)
+     axios.get(`https://jsonplaceholder.typicode.com/posts`) //fack API
       .then(res => {
         console.log('response : ',res)
+        const {bookList} = this.state
+        res.data.map((data) => {
+        const bookObj = {
+          imageUrl: 'https://adaybulletin.com/wp-content/uploads/2019/01/feature_books_575.jpg',
+          title: data.title,
+          author : 'fack author',
+          description : data.body,
+        }
+        bookList.push(bookObj);
+        })
+        this.setState({ bookList: bookList})
       }).catch(err => console.log('error : ',err))
   }
 
